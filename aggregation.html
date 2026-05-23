@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Analisa Aggregation</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+  <div class="logo">
+    <i class="bi bi-bar-chart-fill"></i>
+    Analisa Penjualan
+  </div>
+
+  <a href="/" class="menu">
+    <i class="bi bi-grid-fill"></i>
+    Dashboard
+  </a>
+
+  <a href="/crud.html" class="menu">
+    <i class="bi bi-database-fill"></i>
+    CRUD Data
+  </a>
+
+  <a href="/aggregation.html" class="menu active">
+    <i class="bi bi-cpu-fill"></i>
+    Aggregation
+  </a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main-content">
+
+  <div class="topbar">
+
+    <div>
+      <h2>MongoDB Aggregation</h2>
+      <p>
+        Real-Time Aggregation Pipeline Analytics
+      </p>
+    </div>
+
+    <div class="admin-box">
+      <i class="bi bi-person-circle"></i>
+      Admin
+    </div>
+
+  </div>
+
+  <!-- BUTTONS -->
+
+  <div class="chart-card">
+
+    <div class="chart-title">
+      Aggregation Endpoint
+    </div>
+
+    <div class="d-flex flex-wrap gap-3">
+
+      <button
+        class="btn btn-primary"
+        onclick="showAggr('/api/analytics/kategori')"
+      >
+        Kategori Produk
+      </button>
+
+      <button
+        class="btn btn-success"
+        onclick="showAggr('/api/analytics/pembayaran')"
+      >
+        Metode Pembayaran
+      </button>
+
+      <button
+        class="btn btn-warning"
+        onclick="showAggr('/api/analytics/tren')"
+      >
+        Tren Bulanan
+      </button>
+
+      <button
+        class="btn btn-info"
+        onclick="showAggr('/api/analytics/kota')"
+      >
+        Sebaran Kota
+      </button>
+
+      <button
+        class="btn btn-danger"
+        onclick="showAggr('/api/analytics/pelanggan')"
+      >
+        Segmentasi Pelanggan
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- JSON -->
+
+  <div class="chart-card mt-4">
+
+    <div class="chart-title">
+      Raw JSON Payload
+    </div>
+
+    <div class="endpoint-box mb-3" id="endpointLabel">
+
+      Endpoint aktif:
+      pilih aggregation query...
+
+    </div>
+
+    <pre class="json-box">
+<code id="jsonViewer">
+
+// Data aggregation akan muncul di sini
+
+</code>
+    </pre>
+
+  </div>
+
+</div>
+
+<script src="aggregation.js"></script>
+
+</body>
+</html>

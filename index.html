@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard Analisa Penjualan PT MY LITTLE BOLU KETAN</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Chart JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+  <div class="logo">
+    <i class="bi bi-bar-chart-fill"></i>
+    Analisa Penjualan
+  </div>
+
+  <a href="/" class="menu active">
+    <i class="bi bi-grid-fill"></i>
+    Dashboard
+  </a>
+
+  <a href="/crud.html" class="menu">
+    <i class="bi bi-database-fill"></i>
+    CRUD Data
+  </a>
+
+  <a href="/aggregation.html" class="menu">
+    <i class="bi bi-cpu-fill"></i>
+    Aggregation
+  </a>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main-content">
+
+  <!-- TOPBAR -->
+
+  <div class="topbar">
+
+    <div>
+      <h2>Dashboard Penjualan PT MY LITTLE BOLU KETAN</h2>
+      <p>
+        Analisa Data Transaksi 
+      </p>
+    </div>
+
+    <div class="admin-box">
+      <i class="bi bi-person-circle"></i>
+      Admin
+    </div>
+
+  </div>
+
+  <!-- KPI -->
+
+  <div class="row g-4">
+
+    <div class="col-lg-3 col-md-6">
+
+      <div class="kpi-card">
+
+        <div class="icon-box blue">
+          <i class="bi bi-cash-stack"></i>
+        </div>
+
+        <div class="kpi-title">
+          Total Revenue
+        </div>
+
+        <div class="kpi-value" id="totalRevenue">
+          Rp 0
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+
+      <div class="kpi-card">
+
+        <div class="icon-box green">
+          <i class="bi bi-receipt"></i>
+        </div>
+
+        <div class="kpi-title">
+          Total Transaksi
+        </div>
+
+        <div class="kpi-value" id="totalTransaksi">
+          0
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+
+      <div class="kpi-card">
+
+        <div class="icon-box orange">
+          <i class="bi bi-geo-alt-fill"></i>
+        </div>
+
+        <div class="kpi-title">
+          Top Kota
+        </div>
+
+        <div class="kpi-value" id="topKota">
+          -
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+
+      <div class="kpi-card">
+
+        <div class="icon-box purple">
+          <i class="bi bi-box-fill"></i>
+        </div>
+
+        <div class="kpi-title">
+          Top Kategori
+        </div>
+
+        <div class="kpi-value" id="topKategori">
+          -
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CHART -->
+
+  <div class="row mt-4">
+
+    <div class="col-lg-6">
+
+      <div class="chart-card">
+
+        <div class="chart-title">
+          Penjualan per Kategori
+        </div>
+
+        <canvas id="barChartKategori"></canvas>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <div class="chart-card">
+
+        <div class="chart-title">
+          Distribusi Pembayaran
+        </div>
+
+        <canvas id="doughnutPembayaran"></canvas>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- TREND -->
+
+  <div class="chart-card mt-4">
+
+    <div class="chart-title">
+      Trend Penjualan Bulanan
+    </div>
+
+    <canvas id="lineChartTren"></canvas>
+
+  </div>
+
+  <!-- BOTTOM -->
+
+  <div class="row mt-4">
+
+    <div class="col-lg-6">
+
+      <div class="chart-card">
+
+        <div class="chart-title">
+          Top Kota Penjualan
+        </div>
+
+        <canvas id="horizontalBarKota"></canvas>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <div class="chart-card">
+
+        <div class="chart-title">
+          Segmentasi Pelanggan
+        </div>
+
+        <canvas id="pieChartPelanggan"></canvas>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- INSIGHT -->
+
+  <div class="insight-card">
+
+    <h4>
+      <i class="bi bi-lightbulb-fill"></i>
+      Insight Penjualan
+    </h4>
+
+    <ul>
+      <li>Penjualan kategori elektronik mendominasi total transaksi.</li>
+      <li>Metode pembayaran digital menjadi pilihan utama pelanggan.</li>
+      <li>Kota dengan aktivitas transaksi tertinggi menunjukkan pertumbuhan stabil.</li>
+      <li>Dashboard mampu mengolah lebih dari 3500 data transaksi.</li>
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- JS -->
+<script src="dashboard.js"></script>
+
+</body>
+</html>
