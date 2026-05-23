@@ -1,0 +1,105 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": [
+      "_id",
+      "id_transaksi",
+      "lokasi",
+      "pelanggan",
+      "pembayaran",
+      "produk",
+      "tanggal"
+    ],
+    "properties": {
+      "_id": {
+        "bsonType": "objectId"
+      },
+      "id_transaksi": {
+        "bsonType": "string"
+      },
+      "lokasi": {
+        "bsonType": "object",
+        "properties": {
+          "kota": {
+            "bsonType": "string"
+          },
+          "provinsi": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "kota",
+          "provinsi"
+        ]
+      },
+      "pelanggan": {
+        "bsonType": "object",
+        "properties": {
+          "email": {
+            "bsonType": "string"
+          },
+          "nama": {
+            "bsonType": "string"
+          },
+          "tipe": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "email",
+          "nama",
+          "tipe"
+        ]
+      },
+      "pembayaran": {
+        "bsonType": "object",
+        "properties": {
+          "diskon": {
+            "bsonType": "int"
+          },
+          "metode": {
+            "bsonType": "string"
+          },
+          "total_bayar": {
+            "bsonType": "int"
+          },
+          "total_harga": {
+            "bsonType": "int"
+          }
+        },
+        "required": [
+          "diskon",
+          "metode",
+          "total_bayar",
+          "total_harga"
+        ]
+      },
+      "produk": {
+        "bsonType": "object",
+        "properties": {
+          "harga_satuan": {
+            "bsonType": "int"
+          },
+          "jumlah": {
+            "bsonType": "int"
+          },
+          "kategori": {
+            "bsonType": "string"
+          },
+          "nama_produk": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "harga_satuan",
+          "jumlah",
+          "kategori",
+          "nama_produk"
+        ]
+      },
+      "tanggal": {
+        "bsonType": "date"
+      }
+    }
+  }
+}
