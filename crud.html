@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CRUD Dashboard</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+  <div class="logo">
+    <i class="bi bi-bar-chart-fill"></i>
+    Analisa Penjualan
+  </div>
+
+  <a href="/" class="menu">
+    <i class="bi bi-grid-fill"></i>
+    Dashboard
+  </a>
+
+  <a href="/crud.html" class="menu active">
+    <i class="bi bi-database-fill"></i>
+    CRUD Data
+  </a>
+
+  <a href="/aggregation.html" class="menu">
+    <i class="bi bi-cpu-fill"></i>
+    Aggregation
+  </a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main-content">
+
+  <div class="topbar">
+
+    <div>
+      <h2>Kelola Data Transaksi</h2>
+      <p>
+        Create, Read, Update, Delete MongoDB
+      </p>
+    </div>
+
+    <div class="admin-box">
+      <i class="bi bi-person-circle"></i>
+      Admin
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <!-- FORM -->
+
+    <div class="col-lg-4">
+
+      <div class="chart-card">
+
+        <div class="chart-title">
+          Tambah Transaksi
+        </div>
+
+        <form id="formTransaksi">
+
+          <div class="mb-3">
+            <label class="form-label">
+              Nama Pelanggan
+            </label>
+
+            <input
+              type="text"
+              id="nama_pelanggan"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Tipe Pelanggan
+            </label>
+
+            <select id="tipe_pelanggan" class="form-select">
+              <option>Member</option>
+              <option>Non-Member</option>
+            </select>
+
+          </div>
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Produk
+            </label>
+
+            <select
+              id="select_produk"
+              class="form-select"
+              onchange="updateKategoriDanHarga()"
+            >
+
+              <option data-kategori="Elektronik" data-harga="13000000">
+                Smartphone Samsung S24
+              </option>
+
+              <option data-kategori="Elektronik" data-harga="20000000">
+                Laptop ASUS ROG
+              </option>
+
+              <option data-kategori="Furniture" data-harga="1200000">
+                Meja Kerja Minimalis
+              </option>
+
+              <option data-kategori="Kuliner" data-harga="35000">
+                Bolu Ketan Original
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Kategori
+            </label>
+
+            <input
+              type="text"
+              id="kategori_produk"
+              class="form-control"
+              readonly
+            >
+
+          </div>
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Harga
+            </label>
+
+            <input
+              type="number"
+              id="harga_satuan"
+              class="form-control"
+              readonly
+            >
+
+          </div>
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Jumlah Beli
+            </label>
+
+            <input
+              type="number"
+              id="jumlah_beli"
+              class="form-control"
+              value="1"
+            >
+
+          </div>
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Metode Pembayaran
+            </label>
+
+            <select id="metode_pembayaran" class="form-select">
+
+              <option>Transfer Bank</option>
+              <option>E-Wallet (OVO/Dana)</option>
+              <option>COD</option>
+              <option>Kartu Kredit</option>
+
+            </select>
+
+          </div>
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Kota
+            </label>
+
+            <select id="kota" class="form-select">
+
+              <option>Jakarta</option>
+              <option>Bandung</option>
+              <option>Sukabumi</option>
+              <option>Surabaya</option>
+
+            </select>
+
+          </div>
+
+          <button class="btn btn-primary w-100">
+            Simpan Transaksi
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="col-lg-8">
+
+      <div class="chart-card">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+          <div class="chart-title">
+            Transaksi Terbaru
+          </div>
+
+          <input
+            type="text"
+            class="form-control w-25"
+            placeholder="Cari..."
+          >
+
+        </div>
+
+        <div class="table-responsive">
+
+          <table class="table align-middle">
+
+            <thead>
+
+              <tr>
+                <th>ID</th>
+                <th>Pelanggan</th>
+                <th>Produk</th>
+                <th>Total</th>
+                <th>Aksi</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="tabelTransaksi">
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="crud.js"></script>
+
+</body>
+</html>
